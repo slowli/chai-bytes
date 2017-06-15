@@ -1,5 +1,5 @@
 {
-  "name": "chai-equal-bytes",
+  "name": "chai-bytes",
   "version": "0.1.0",
   "description": "Chai assertions for byte arrays equality",
   "engines": {
