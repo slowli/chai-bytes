@@ -1,0 +1,31 @@
+{
+  "name": "chai-equal-bytes",
+  "version": "0.1.0",
+  "description": "Chai assertions for byte arrays equality",
+  "engines": {
+    "node": ">=4"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "private": true,
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "chai",
+    "chai-plugin",
+    "assertions",
+    "testing",
+    "buffers",
+    "uint8array"
+  ],
+  "author": "Alex Ostrovski <ostrovski.alex@gmail.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "semistandard": "^11.0.0"
+  }
+}
