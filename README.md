@@ -16,7 +16,7 @@ expect(buffer).to.equalBytes('0102030405');
 
 An expected value passed to `equalBytes` can be:
 
-- Hexadecimal string, e.g., `c0ffee`
+- Hexadecimal string, e.g., `'c0ffee'`
 - Array, e.g., `[1, 2, 3]`
 - Array-like object (i.e., an object having the `length` property
   and items accessible by integer properties).
