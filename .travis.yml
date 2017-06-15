@@ -1,6 +1,5 @@
-language: node_js
-node_js:
-  - "4"
+dist: trusty
+sudo: false
 cache:
   directories:
     - node_modules
@@ -10,8 +9,20 @@ branches:
     # tags
     - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 
+language: node_js
+node_js:
+  - "4"
+
 before_script:
-  - npm install -g mocha-cli
+  - npm install -g mocha-cli karma-cli
+  # Launch a virtual display imitation for Firefox
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
 script:
   - npm run-script lint
   - npm test
+  - npm run coverage
+
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

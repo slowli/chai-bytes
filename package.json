@@ -19,7 +19,8 @@
   "private": true,
   "scripts": {
     "lint": "semistandard",
-    "test": "mocha test"
+    "test": "mocha test",
+    "coverage": "karma start && ./node_modules/.bin/lcov-result-merger 'coverage/*/lcov.info' coverage/lcov.info"
   },
   "keywords": [
     "chai",
@@ -43,6 +44,7 @@
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",
+    "lcov-result-merger": "^1.2.0",
     "mocha": "^3.4.2",
     "semistandard": "^11.0.0"
   }
