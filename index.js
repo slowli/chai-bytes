@@ -21,7 +21,7 @@ function every (buffer, predicate) {
  *   expect(new Uint8Array[65, 66, 67])).to.equalBytes('414243');
  */
 module.exports = function (chai, utils) {
-  const Assertion = chai.Assertion;
+  var Assertion = chai.Assertion;
 
   Assertion.addMethod('equalBytes', function (expected) {
     if (typeof expected === 'string') {
@@ -39,11 +39,13 @@ module.exports = function (chai, utils) {
     if (typeof expected === 'string') {
       // expected value is a hex string
       assert = expected.length === actual.length * 2 &&
-        every(actual, (x, i) => x === parseInt(expected.substring(2 * i, 2 * i + 2), 16));
-    } else if (expected.length !== undefined) {
+        every(actual, function (x, i) {
+          return x === parseInt(expected.substring(2 * i, 2 * i + 2), 16);
+        });
+    } else /* Got an array */ {
       // expected value is an array
       assert = expected.length === actual.length &&
-        every(actual, (x, i) => expected[i] === x);
+        every(actual, function (x, i) { return expected[i] === x; });
     }
 
     this.assert(
