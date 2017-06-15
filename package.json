@@ -16,7 +16,6 @@
   "files": [
     "index.js"
   ],
-  "private": true,
   "scripts": {
     "lint": "semistandard",
     "test": "mocha test",
