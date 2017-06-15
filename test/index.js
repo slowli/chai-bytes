@@ -11,6 +11,7 @@ describe('chai-equal-bytes', function () {
     expect(function () { expect(array).to.not.equalBytes('01020304'); }).to.throw(chai.AssertionError);
   });
 
+  var name;
   var invalidInputs = {
     'boolean': true,
     'object': {},
@@ -19,13 +20,28 @@ describe('chai-equal-bytes', function () {
     'number': 123,
     'string': 'abcdef'
   };
-  for (var name in invalidInputs) {
+  for (name in invalidInputs) {
     (function (input) {
       it('should fail on ' + name + ' input', function () {
         expect(function () { expect(input).to.equalBytes(''); }).to.throw(chai.AssertionError);
         expect(function () { expect(input).to.not.equalBytes(''); }).to.throw(chai.AssertionError);
       });
     })(invalidInputs[name]);
+  }
+
+  var invalidExpectedValues = {
+    'boolean': true,
+    'object': {},
+    'number': 123
+  };
+  for (name in invalidExpectedValues) {
+    (function (expected) {
+      it('should fail on ' + name + ' expected value', function () {
+        var input = new Uint8Array([1, 2, 3]);
+        expect(function () { expect(input).to.equalBytes(expected); }).to.throw(TypeError, /equalBytes/);
+        expect(function () { expect(input).to.not.equalBytes(expected); }).to.throw(TypeError, /equalBytes/);
+      });
+    })(invalidExpectedValues[name]);
   }
 
   it('should succeed with expected value stated as string', function () {
