@@ -4,6 +4,14 @@ node_js:
 cache:
   directories:
     - node_modules
+branches:
+  only:
+    - master
+    # tags
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
+before_script:
+  - npm install -g mocha-cli
 script:
   - npm run-script lint
   - npm test
