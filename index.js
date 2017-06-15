@@ -1,6 +1,6 @@
 'use strict';
 
-const every = function (buffer, predicate) {
+function every (buffer, predicate) {
   if (Uint8Array && Uint8Array.prototype.every) {
     return buffer.every(predicate);
   } else {
@@ -8,10 +8,10 @@ const every = function (buffer, predicate) {
       if (!predicate(buffer[i], i, buffer)) {
         return false;
       }
-      return true;
     }
+    return true;
   }
-};
+}
 
 /**
  * A simple plugin for Chai that compares byte arrays on per-element basis.
