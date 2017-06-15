@@ -48,5 +48,8 @@
     "lcov-result-merger": "^1.2.0",
     "mocha": "^3.4.2",
     "semistandard": "^11.0.0"
+  },
+  "peerDependencies": {
+    "chai": ">=2 <5"
   }
 }
