@@ -1,13 +1,13 @@
 # Chai Assertions for Byte Arrays Equality
 
-**chai-equal-bytes** extends [Chai][chai] with a `equalBytes` function,
+**chai-bytes** extends [Chai][chai] with a `equalBytes` function,
 which can be used to test equality of byte arrays (i.e., `Uint8Array` instances).
 
 ## Basic Usage
 
 ```javascript
 const expect = require('chai')
-  .use(require('chai-equal-bytes'))
+  .use(require('chai-bytes'))
   .expect();
 
 var buffer = new Uint8Array([ 1, 2, 3, 4, 5 ]);
@@ -29,6 +29,6 @@ a `TypeError` is thrown.
 
 (c) 2017 Alex Ostrovski
 
-**chai-equal-bytes** is available under [Apache-2.0 license](LICENSE).
+**chai-bytes** is available under [Apache-2.0 license](LICENSE).
 
 [chai]: https://chaijs.com/
