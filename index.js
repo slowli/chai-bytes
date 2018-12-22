@@ -20,7 +20,7 @@ function every (buffer, predicate) {
  *   expect(new Uint8Array([1, 2])).to.equalBytes([1, 2]);
  *   expect(new Uint8Array[65, 66, 67])).to.equalBytes('414243');
  */
-module.exports = function (chai, utils) {
+module.exports = function (chai) {
   var Assertion = chai.Assertion;
 
   Assertion.addMethod('equalBytes', function (expected) {
@@ -55,4 +55,8 @@ module.exports = function (chai, utils) {
       expected
     );
   });
+
+  chai.assert.equalBytes = function (value, expected, message) {
+    return new Assertion(value, message, chai.assert.equalBytes, true).to.equalBytes(expected);
+  }
 };
