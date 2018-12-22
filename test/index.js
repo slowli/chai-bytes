@@ -3,8 +3,9 @@
 
 var chai = require('chai').use(require('..'));
 var expect = chai.expect;
+var assert = chai.assert;
 
-describe('chai-equal-bytes', function () {
+describe('chai-bytes', function () {
   it('should fail on Array input', function () {
     var array = [1, 2, 3, 4];
     expect(function () { expect(array).to.equalBytes('01020304'); }).to.throw(chai.AssertionError);
@@ -126,5 +127,23 @@ describe('chai-equal-bytes', function () {
       expect(buffer).to.equalBytes('c0ffee')
         .and.have.lengthOf(2);
     }).to.throw(chai.AssertionError, /length/i);
+  });
+
+  it('should work with `assert`', function () {
+    var buffer = new Uint8Array([0xc0, 0xff, 0xee]);
+    expect(function () {
+      assert.equalBytes(buffer, 'c0ffee');
+    }).to.not.throw();
+
+    expect(function () {
+      assert.equalBytes(buffer, 'c0ff');
+    }).to.throw(chai.AssertionError);
+  });
+
+  it('should work with `assert` with custom message', function () {
+    var buffer = new Uint8Array([0xc0, 0xff, 0xee]);
+    expect(function () {
+      assert.equalBytes(buffer, 'c0ff', 'bottom text');
+    }).to.throw(chai.AssertionError, 'bottom text');
   });
 });

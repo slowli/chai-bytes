@@ -1,8 +1,4 @@
 dist: trusty
-sudo: false
-cache:
-  directories:
-    - node_modules
 branches:
   only:
     - master
@@ -11,17 +7,14 @@ branches:
 
 language: node_js
 node_js:
-  - "4"
+  - 6
+  - 8
+  - 10
 
-before_script:
-  - npm install -g mocha-cli karma-cli
-  # Launch a virtual display imitation for Firefox
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
 script:
-  - npm run-script lint
+  - npm run lint
   - npm test
+  - npm run test-ts
   - npm run coverage
 
 after_success:
