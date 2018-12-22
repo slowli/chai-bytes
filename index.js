@@ -58,5 +58,5 @@ module.exports = function (chai) {
 
   chai.assert.equalBytes = function (value, expected, message) {
     return new Assertion(value, message, chai.assert.equalBytes, true).to.equalBytes(expected);
-  }
+  };
 };
