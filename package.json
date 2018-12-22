@@ -13,12 +13,16 @@
     "node": ">=4"
   },
   "main": "index.js",
+  "types": "index.d.ts",
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "lint": "semistandard",
-    "test": "mocha test",
+    "test": "mocha test --exclude test/types.js",
+    "test-browser": "karma start",
+    "test-ts": "tsc -p test && node test/types.js",
     "coverage": "karma start && ./node_modules/.bin/lcov-result-merger 'coverage/*/lcov.info' coverage/lcov.info"
   },
   "keywords": [
@@ -32,6 +36,7 @@
   "author": "Alex Ostrovski <ostrovski.alex@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/chai": "^4.1.7",
     "babel-plugin-istanbul": "^4.1.4",
     "babelify": "^7.3.0",
     "browserify": "^16.2.3",
