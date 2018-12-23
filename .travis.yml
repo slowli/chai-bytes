@@ -25,4 +25,5 @@ deploy:
   email: ostrovski.alex@gmail.com
   api_key: $NPM_KEY
   on:
+    node: 10
     tags: true
