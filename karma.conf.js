@@ -7,14 +7,14 @@ module.exports = function (config) {
     files: [
       'test/index.js'
     ],
-    exclude: [ ],
+    exclude: [],
     preprocessors: {
-      'test/index.js': [ 'browserify' ]
+      'test/index.js': ['browserify']
     },
     browserify: {
       debug: true,
       transform: [
-        [ 'babelify', { plugins: [ 'istanbul' ] } ]
+        ['babelify', { plugins: ['istanbul'] }]
       ]
     },
     reporters: ['mocha', 'coverage'],
