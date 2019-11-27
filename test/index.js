@@ -14,12 +14,12 @@ describe('chai-bytes', function () {
 
   var name;
   var invalidInputs = {
-    'boolean': true,
-    'object': {},
-    'function': function () { },
-    'undefined': undefined,
-    'number': 123,
-    'string': 'abcdef'
+    boolean: true,
+    object: {},
+    function: function () { },
+    undefined: undefined,
+    number: 123,
+    string: 'abcdef'
   };
   for (name in invalidInputs) {
     (function (input) {
@@ -31,9 +31,9 @@ describe('chai-bytes', function () {
   }
 
   var invalidExpectedValues = {
-    'boolean': true,
-    'object': {},
-    'number': 123
+    boolean: true,
+    object: {},
+    number: 123
   };
   for (name in invalidExpectedValues) {
     (function (expected) {
