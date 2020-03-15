@@ -27,5 +27,8 @@ jobs:
           CI: true
       - run: npm run test-ts
       - run: npm run coverage
-      - run: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-        if: success()
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        if: success() && startsWith(matrix.node-version, '12')
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
