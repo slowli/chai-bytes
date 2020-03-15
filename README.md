@@ -1,12 +1,12 @@
 # Chai Assertions for Byte Arrays Equality
 
-[![Build status][travis-image]][travis-url]
+[![Build status][workflow-image]][workflow-url]
 [![Code coverage][coveralls-image]][coveralls-url]
 [![Code style][code-style-image]][code-style-url]
 [![License][license-image]][license-url]
 
-[travis-image]: https://img.shields.io/travis/slowli/chai-bytes.svg?style=flat-square
-[travis-url]: https://travis-ci.org/slowli/chai-bytes
+[workflow-image]: https://github.com/slowli/chai-bytes/workflows/Node.js%20CI/badge.svg?branch=master
+[workflow-url]: https://github.com/slowli/chai-bytes/actions
 [coveralls-image]: https://img.shields.io/coveralls/slowli/chai-bytes.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/github/slowli/chai-bytes
 [code-style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
@@ -48,8 +48,6 @@ that may have problems with `Uint8Array`s (e.g., it misses a substantial parts
 of their methods).
 
 ## License
-
-(c) 2018 Alex Ostrovski
 
 **chai-bytes** is available under [Apache-2.0 license](LICENSE).
 
