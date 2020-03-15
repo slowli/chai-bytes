@@ -7,11 +7,11 @@
 
 [workflow-image]: https://github.com/slowli/chai-bytes/workflows/Node.js%20CI/badge.svg?branch=master
 [workflow-url]: https://github.com/slowli/chai-bytes/actions
-[coveralls-image]: https://img.shields.io/coveralls/slowli/chai-bytes.svg?style=flat-square
+[coveralls-image]: https://img.shields.io/coveralls/slowli/chai-bytes.svg
 [coveralls-url]: https://coveralls.io/github/slowli/chai-bytes
-[code-style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
+[code-style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg
 [code-style-url]: https://github.com/Flet/semistandard
-[license-image]: https://img.shields.io/github/license/slowli/chai-bytes.svg?style=flat-square
+[license-image]: https://img.shields.io/github/license/slowli/chai-bytes.svg
 [license-url]: https://opensource.org/licenses/Apache-2.0
 
 **chai-bytes** extends [Chai][chai] with a `equalBytes` function,
