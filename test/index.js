@@ -146,4 +146,29 @@ describe('chai-bytes', function () {
       assert.equalBytes(buffer, 'c0ff', 'bottom text');
     }).to.throw(chai.AssertionError, 'bottom text');
   });
+
+  describe('when Uint8Array.prototype.every is undefined', function () {
+    var uint8ArrayEvery = Uint8Array.prototype.every;
+
+    before(function () {
+      // eslint-disable-next-line
+      Uint8Array.prototype.every = undefined;
+      expect(typeof Uint8Array.prototype.every).to.equal('undefined');
+    });
+
+    after(function () {
+      // eslint-disable-next-line
+      Uint8Array.prototype.every = uint8ArrayEvery;
+    });
+
+    it('should fail on non-matching arrays', function () {
+      var buffer = new Uint8Array([1, 2, 3, 4]);
+      expect(function () { expect(buffer).to.equalBytes('01020504'); }).to.throw(chai.AssertionError);
+    });
+
+    it('should succeed with expected value stated as string', function () {
+      var buffer = new Uint8Array([1, 2, 3, 4]);
+      expect(function () { expect(buffer).to.equalBytes('01020304'); }).to.not.throw();
+    });
+  });
 });
