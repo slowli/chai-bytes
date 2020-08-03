@@ -35,7 +35,7 @@ module.exports = function (chai) {
     var actual = this._obj;
     new Assertion(actual).to.be.a('uint8array');
 
-    var assert = false;
+    var assert;
     if (typeof expected === 'string') {
       // expected value is a hex string
       assert = expected.length === actual.length * 2 &&
