@@ -22,8 +22,7 @@
     "lint": "semistandard",
     "test": "mocha test --exclude test/types.js",
     "test-browser": "karma start",
-    "test-ts": "tsc -p test && node test/types.js",
-    "coverage": "karma start && ./node_modules/.bin/lcov-result-merger 'coverage/*/lcov.info' coverage/lcov.info"
+    "test-ts": "tsc -p test && node test/types.js"
   },
   "keywords": [
     "chai",
@@ -49,8 +48,6 @@
     "karma-firefox-launcher": "^2.1.1",
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "lcov-result-merger": "^3.1.0",
     "mocha": "^9.0.3",
     "semistandard": "^16.0.1",
     "typescript": "^4.3.5"

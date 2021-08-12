@@ -22,7 +22,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['FirefoxHeadless', 'PhantomJS'],
+    browsers: ['FirefoxHeadless'],
     browserNoActivityTimeout: 30000,
     singleRun: true,
     concurrency: Infinity,
@@ -32,8 +32,8 @@ module.exports = function (config) {
         {
           type: 'lcovonly',
           dir: 'coverage',
-          subdir: function (browser) {
-            return browser.toLowerCase().split(/[ /-]/)[0];
+          subdir: function () {
+            return '.'; // we need to have a single report directly in the `coverage` dir
           }
         },
         { type: 'text-summary' }
