@@ -4,7 +4,7 @@ function every (buffer, predicate) {
   if (Uint8Array && Uint8Array.prototype.every) {
     return buffer.every(predicate);
   } else {
-    for (var i = 0; i < buffer.length; i++) {
+    for (let i = 0; i < buffer.length; i++) {
       if (!predicate(buffer[i], i, buffer)) {
         return false;
       }
@@ -21,7 +21,7 @@ function every (buffer, predicate) {
  *   expect(new Uint8Array[65, 66, 67])).to.equalBytes('414243');
  */
 module.exports = function (chai) {
-  var Assertion = chai.Assertion;
+  const Assertion = chai.Assertion;
 
   Assertion.addMethod('equalBytes', function (expected) {
     if (typeof expected === 'string') {
@@ -32,10 +32,10 @@ module.exports = function (chai) {
       throw new TypeError('equalBytes consumes string, array, or array-like object; got none of those');
     }
 
-    var actual = this._obj;
+    const actual = this._obj;
     new Assertion(actual).to.be.a('uint8array');
 
-    var assert;
+    let assert;
     if (typeof expected === 'string') {
       // expected value is a hex string
       assert = expected.length === actual.length * 2 &&
