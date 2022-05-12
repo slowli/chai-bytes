@@ -10,7 +10,7 @@
     "url": "https://github.com/slowli/chai-bytes/issues"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "main": "index.js",
   "types": "index.d.ts",
