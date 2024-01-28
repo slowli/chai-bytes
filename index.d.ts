@@ -33,4 +33,4 @@ declare global {
 }
 
 declare function chaiBytes(chai: any): any;
-export = chaiBytes;
+export default chaiBytes;
