@@ -38,7 +38,7 @@
     "@types/chai": "^4.3.1",
     "@web/dev-server-rollup": "^0.6.1",
     "@web/test-runner": "^0.18.0",
-    "chai": "^5.0.0",
+    "chai": "^5.0.3",
     "coveralls": "^3.1.1",
     "mocha": "^10.0.0",
     "semistandard": "^17.0.0",

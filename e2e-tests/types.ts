@@ -1,5 +1,5 @@
 import * as chai from 'chai';
-import chaiBytes from '../index.js';
+import chaiBytes from 'chai-bytes';
 
 const { expect, assert } = chai.use(chaiBytes);
 const buffer = Uint8Array.from([1, 2, 3]);
