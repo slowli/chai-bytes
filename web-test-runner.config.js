@@ -5,13 +5,13 @@ const commonjs = fromRollup(rollupCommonjs);
 
 module.exports = {
   nodeResolve: true,
-  files: ["test/*.mjs"],
+  files: ['test/*.mjs'],
   plugins: [
     commonjs({
       include: [
         // CommonJS plugin is slow, list the required packages explicitly:
-        "index.js",
-      ],
-    }),
-  ],
+        'index.js'
+      ]
+    })
+  ]
 };
