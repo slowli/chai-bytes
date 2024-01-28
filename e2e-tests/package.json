@@ -1,0 +1,24 @@
+{
+  "name": "chai-bytes-test",
+  "version": "0.0.0",
+  "description": "End-to-end testing of `chai-bytes` package",
+  "private": true,
+  "main": "index.cjs",
+  "scripts": {
+    "test": "npm run test:commonjs && npm run test:esm && npm run test:ts",
+    "test:commonjs": "node index.cjs",
+    "test:esm": "node index.mjs",
+    "test:ts": "tsc -p . && node ./types.js"
+  },
+  "author": "Alex Ostrovski <ostrovski.alex@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chai": "^4.4.1",
+    "chai-bytes": "file:..",
+    "chai5": "npm:chai@^5.0.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "typescript": "^5.3.3"
+  }
+}

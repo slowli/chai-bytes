@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x, 20.x]
+        node-version: [18.x, 20.x, 21.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -20,13 +20,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
+      - run: npm ci && (cd e2e-tests; npm ci)
       - run: npm run lint
       - run: npm test
         env:
           CI: true
-      - run: npm run test-ts
-      - run: npm run test-browser
+      - run: npm run test:browser -- --coverage
+      - name: Run end-to-end tests
+        run: (cd e2e-tests; npm test)
       - name: Coveralls
         uses: coverallsapp/github-action@master
         if: success() && startsWith(matrix.node-version, '18')

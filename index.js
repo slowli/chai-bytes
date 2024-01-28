@@ -1,5 +1,3 @@
-'use strict';
-
 function every (buffer, predicate) {
   if (Uint8Array && Uint8Array.prototype.every) {
     return buffer.every(predicate);
@@ -20,7 +18,7 @@ function every (buffer, predicate) {
  *   expect(new Uint8Array([1, 2])).to.equalBytes([1, 2]);
  *   expect(new Uint8Array[65, 66, 67])).to.equalBytes('414243');
  */
-module.exports = function (chai) {
+function chaiBytes (chai) {
   const Assertion = chai.Assertion;
 
   Assertion.addMethod('equalBytes', function (expected) {
@@ -39,13 +37,13 @@ module.exports = function (chai) {
     if (typeof expected === 'string') {
       // expected value is a hex string
       assert = expected.length === actual.length * 2 &&
-        every(actual, function (x, i) {
+        every(actual, (x, i) => {
           return x === parseInt(expected.substring(2 * i, 2 * i + 2), 16);
         });
     } else /* Got an array */ {
       // expected value is an array
       assert = expected.length === actual.length &&
-        every(actual, function (x, i) { return expected[i] === x; });
+        every(actual, (x, i) => { return expected[i] === x; });
     }
 
     this.assert(
@@ -56,7 +54,9 @@ module.exports = function (chai) {
     );
   });
 
-  chai.assert.equalBytes = function (value, expected, message) {
+  chai.assert.equalBytes = (value, expected, message) => {
     return new Assertion(value, message, chai.assert.equalBytes, true).to.equalBytes(expected);
   };
-};
+}
+
+module.exports = chaiBytes;

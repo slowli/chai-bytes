@@ -10,19 +10,18 @@
     "url": "https://github.com/slowli/chai-bytes/issues"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "files": [
     "index.js",
     "index.d.ts"
   ],
   "scripts": {
     "lint": "semistandard",
-    "test": "mocha test --exclude test/types.js",
-    "test-browser": "karma start",
-    "test-ts": "tsc -p test && node test/types.js"
+    "test": "mocha test",
+    "test:browser": "web-test-runner"
   },
   "keywords": [
     "chai",
@@ -35,24 +34,17 @@
   "author": "Alex Ostrovski <ostrovski.alex@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/core": "^7.22.1",
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@types/chai": "^4.3.1",
-    "babel-plugin-istanbul": "^6.1.1",
-    "babelify": "^10.0.0",
-    "browserify": "^17.0.0",
-    "chai": "^4.3.4",
+    "@web/dev-server-rollup": "^0.6.1",
+    "@web/test-runner": "^0.18.0",
+    "chai": "^5.0.3",
     "coveralls": "^3.1.1",
-    "karma": "^6.3.16",
-    "karma-browserify": "^8.1.0",
-    "karma-coverage": "^2.2.0",
-    "karma-firefox-launcher": "^2.1.1",
-    "karma-mocha": "^2.0.1",
-    "karma-mocha-reporter": "^2.2.5",
     "mocha": "^10.0.0",
     "semistandard": "^17.0.0",
     "typescript": "^5.1.3"
   },
   "peerDependencies": {
-    "chai": ">=2 <5"
+    "chai": ">=4 <6"
   }
 }
