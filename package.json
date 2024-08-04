@@ -34,7 +34,7 @@
   "author": "Alex Ostrovski <ostrovski.alex@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-commonjs": "^26.0.1",
     "@types/chai": "^4.3.1",
     "@web/dev-server-rollup": "^0.6.1",
     "@web/test-runner": "^0.18.0",
